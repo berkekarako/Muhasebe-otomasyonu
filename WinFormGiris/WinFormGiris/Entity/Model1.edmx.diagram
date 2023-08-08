@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5c58bc5103f740809ef3efcf469efe49" Name="Diagram1">
+        <EntityTypeShape EntityType="WinFormDbModel.ilceler" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="WinFormDbModel.iller" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="WinFormDbModel.sysdiagram" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="WinFormDbModel.tblAd" Width="1.5" PointX="7.75" PointY="7.75" />
+        <EntityTypeShape EntityType="WinFormDbModel.tblBirim" Width="1.5" PointX="7.75" PointY="1.5" />
+        <EntityTypeShape EntityType="WinFormDbModel.tblCari" Width="1.5" PointX="3" PointY="2.75" />
+        <EntityTypeShape EntityType="WinFormDbModel.tblStokCikisAlt" Width="1.5" PointX="2.75" PointY="8.75" />
+        <EntityTypeShape EntityType="WinFormDbModel.tblStokCikisUst" Width="1.5" PointX="5.25" PointY="1.125" />
+        <EntityTypeShape EntityType="WinFormDbModel.tblStokDurum" Width="1.5" PointX="4.75" PointY="8.75" />
+        <EntityTypeShape EntityType="WinFormDbModel.tblStokGirisAlt" Width="1.5" PointX="9.75" PointY="4.75" />
+        <EntityTypeShape EntityType="WinFormDbModel.tblStokGirisUst" Width="1.5" PointX="5.25" PointY="5.375" />
+        <EntityTypeShape EntityType="WinFormDbModel.tblUrunKayit" Width="1.5" PointX="10" PointY="1" />
+        <EntityTypeShape EntityType="WinFormDbModel.tblUser" Width="1.5" PointX="9.75" PointY="8.75" />
+        <AssociationConnector Association="WinFormDbModel.FK_tblCari_iller" />
+        <AssociationConnector Association="WinFormDbModel.FK_tblUrunKayit_tblBirim" />
+        <AssociationConnector Association="WinFormDbModel.FK_tblStokCikisUst_tblCari" />
+        <AssociationConnector Association="WinFormDbModel.FK_tblStokGirisUst_tblCari" />
+        <EntityTypeShape EntityType="WinFormDbModel.vwStokGirisHepsi" Width="1.875" PointX="6.875" PointY="10.125" />
+        <EntityTypeShape EntityType="WinFormDbModel.vwStokCikisHepsi" Width="1.5" PointX="12.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,268 @@
+﻿namespace WinFormGiris.UrunIslemleri
+{
+    partial class frmStokGirisListe
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.pnlAlt = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnBul = new System.Windows.Forms.Button();
+            this.txtCariAdi = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.Liste = new System.Windows.Forms.DataGridView();
+            this.btnKapat = new System.Windows.Forms.Button();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GirisKod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariAd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GirisTur = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FaturaNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GirisTarih = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnlAlt.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // pnlAlt
+            // 
+            this.pnlAlt.BackColor = System.Drawing.Color.SteelBlue;
+            this.pnlAlt.Controls.Add(this.label1);
+            this.pnlAlt.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlAlt.Location = new System.Drawing.Point(0, 0);
+            this.pnlAlt.Name = "pnlAlt";
+            this.pnlAlt.Size = new System.Drawing.Size(817, 45);
+            this.pnlAlt.TabIndex = 14;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(10, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(244, 28);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Stok Giriş Listesi";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnBul
+            // 
+            this.btnBul.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnBul.Image = global::WinFormGiris.Properties.Resources.arrow;
+            this.btnBul.Location = new System.Drawing.Point(0, 483);
+            this.btnBul.Name = "btnBul";
+            this.btnBul.Size = new System.Drawing.Size(316, 60);
+            this.btnBul.TabIndex = 6;
+            this.btnBul.Text = "Bul";
+            this.btnBul.UseVisualStyleBackColor = true;
+            this.btnBul.Click += new System.EventHandler(this.btnBul_Click);
+            // 
+            // txtCariAdi
+            // 
+            this.txtCariAdi.Location = new System.Drawing.Point(114, 78);
+            this.txtCariAdi.Name = "txtCariAdi";
+            this.txtCariAdi.Size = new System.Drawing.Size(190, 22);
+            this.txtCariAdi.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.SteelBlue;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(8, 77);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 23);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Cari Adı :";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 45);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Sil";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 498);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(817, 45);
+            this.panel1.TabIndex = 16;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.Liste);
+            this.splitContainer1.Panel1.Controls.Add(this.panel1);
+            this.splitContainer1.Panel1.Controls.Add(this.pnlAlt);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.splitContainer1.Panel2.Controls.Add(this.btnBul);
+            this.splitContainer1.Panel2.Controls.Add(this.btnKapat);
+            this.splitContainer1.Panel2.Controls.Add(this.txtCariAdi);
+            this.splitContainer1.Panel2.Controls.Add(this.label2);
+            this.splitContainer1.Size = new System.Drawing.Size(1145, 547);
+            this.splitContainer1.SplitterDistance = 821;
+            this.splitContainer1.TabIndex = 5;
+            // 
+            // Liste
+            // 
+            this.Liste.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Liste.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.GirisKod,
+            this.CariAd,
+            this.GirisTur,
+            this.FaturaNo,
+            this.GirisTarih});
+            this.Liste.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Liste.Location = new System.Drawing.Point(0, 45);
+            this.Liste.Name = "Liste";
+            this.Liste.ReadOnly = true;
+            this.Liste.RowTemplate.Height = 24;
+            this.Liste.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Liste.Size = new System.Drawing.Size(817, 453);
+            this.Liste.TabIndex = 17;
+            this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
+            // 
+            // btnKapat
+            // 
+            this.btnKapat.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnKapat.Location = new System.Drawing.Point(0, 0);
+            this.btnKapat.Name = "btnKapat";
+            this.btnKapat.Size = new System.Drawing.Size(316, 63);
+            this.btnKapat.TabIndex = 7;
+            this.btnKapat.Text = "Formu Kapat";
+            this.btnKapat.UseVisualStyleBackColor = true;
+            // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 48;
+            // 
+            // GirisKod
+            // 
+            this.GirisKod.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.GirisKod.HeaderText = "Giriş Kodu";
+            this.GirisKod.Name = "GirisKod";
+            this.GirisKod.ReadOnly = true;
+            this.GirisKod.Width = 103;
+            // 
+            // CariAd
+            // 
+            this.CariAd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CariAd.HeaderText = "Cari Adı";
+            this.CariAd.Name = "CariAd";
+            this.CariAd.ReadOnly = true;
+            // 
+            // GirisTur
+            // 
+            this.GirisTur.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.GirisTur.HeaderText = "Giriş Türü";
+            this.GirisTur.Name = "GirisTur";
+            this.GirisTur.ReadOnly = true;
+            // 
+            // FaturaNo
+            // 
+            this.FaturaNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.FaturaNo.HeaderText = "Fatura No";
+            this.FaturaNo.Name = "FaturaNo";
+            this.FaturaNo.ReadOnly = true;
+            // 
+            // GirisTarih
+            // 
+            this.GirisTarih.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.GirisTarih.HeaderText = "Giriş Tarihi";
+            this.GirisTarih.Name = "GirisTarih";
+            this.GirisTarih.ReadOnly = true;
+            this.GirisTarih.Width = 106;
+            // 
+            // frmStokGirisListe
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1145, 547);
+            this.Controls.Add(this.splitContainer1);
+            this.Name = "frmStokGirisListe";
+            this.Text = "frmStokGirisListe";
+            this.Load += new System.EventHandler(this.frmStokGirisListe_Load);
+            this.pnlAlt.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Liste)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel pnlAlt;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnBul;
+        private System.Windows.Forms.TextBox txtCariAdi;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.DataGridView Liste;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GirisKod;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CariAd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GirisTur;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FaturaNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GirisTarih;
+        private System.Windows.Forms.Button btnKapat;
+    }
+}

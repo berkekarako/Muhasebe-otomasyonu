@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WinFormDbModelStoreContainer" CdmEntityContainer="WinFormDbEntities1">
+    <EntitySetMapping Name="ilcelers">
+      <EntityTypeMapping TypeName="WinFormDbModel.ilceler">
+        <MappingFragment StoreEntitySet="ilceler">
+          <ScalarProperty Name="sehir" ColumnName="sehir" />
+          <ScalarProperty Name="ilce" ColumnName="ilce" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="illers">
+      <EntityTypeMapping TypeName="WinFormDbModel.iller">
+        <MappingFragment StoreEntitySet="iller">
+          <ScalarProperty Name="sehir" ColumnName="sehir" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="WinFormDbModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAds">
+      <EntityTypeMapping TypeName="WinFormDbModel.tblAd">
+        <MappingFragment StoreEntitySet="tblAd">
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBirims">
+      <EntityTypeMapping TypeName="WinFormDbModel.tblBirim">
+        <MappingFragment StoreEntitySet="tblBirim">
+          <ScalarProperty Name="Adi" ColumnName="Adi" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCaris">
+      <EntityTypeMapping TypeName="WinFormDbModel.tblCari">
+        <MappingFragment StoreEntitySet="tblCari">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="VNo_Tc" ColumnName="VNo_Tc" />
+          <ScalarProperty Name="VDaire" ColumnName="VDaire" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="UlkeKodu" ColumnName="UlkeKodu" />
+          <ScalarProperty Name="SehirId" ColumnName="SehirId" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="CariAd" ColumnName="CariAd" />
+          <ScalarProperty Name="CariKod" ColumnName="CariKod" />
+          <ScalarProperty Name="CariTip" ColumnName="CariTip" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblStokCikisAlts">
+      <EntityTypeMapping TypeName="WinFormDbModel.tblStokCikisAlt">
+        <MappingFragment StoreEntitySet="tblStokCikisAlt">
+          <ScalarProperty Name="SatisMiktar" ColumnName="SatisMiktar" />
+          <ScalarProperty Name="KdvDahil" ColumnName="KdvDahil" />
+          <ScalarProperty Name="KdvOran" ColumnName="KdvOran" />
+          <ScalarProperty Name="SatisFiyat" ColumnName="SatisFiyat" />
+          <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+          <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+          <ScalarProperty Name="Birim" ColumnName="Birim" />
+          <ScalarProperty Name="LotSeriNo" ColumnName="LotSeriNo" />
+          <ScalarProperty Name="UrunKod" ColumnName="UrunKod" />
+          <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+          <ScalarProperty Name="CikisSira" ColumnName="CikisSira" />
+          <ScalarProperty Name="CikisKod" ColumnName="CikisKod" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblStokCikisUsts">
+      <EntityTypeMapping TypeName="WinFormDbModel.tblStokCikisUst">
+        <MappingFragment StoreEntitySet="tblStokCikisUst">
+          <ScalarProperty Name="SatisMiktar" ColumnName="SatisMiktar" />
+          <ScalarProperty Name="GenelToplam" ColumnName="GenelToplam" />
+          <ScalarProperty Name="KdvToplam" ColumnName="KdvToplam" />
+          <ScalarProperty Name="Iskonto" ColumnName="Iskonto" />
+          <ScalarProperty Name="AraToplam" ColumnName="AraToplam" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="CikisTarih" ColumnName="CikisTarih" />
+          <ScalarProperty Name="FaturaNo" ColumnName="FaturaNo" />
+          <ScalarProperty Name="CikisTur" ColumnName="CikisTur" />
+          <ScalarProperty Name="CariId" ColumnName="CariId" />
+          <ScalarProperty Name="CikisKod" ColumnName="CikisKod" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblStokDurums">
+      <EntityTypeMapping TypeName="WinFormDbModel.tblStokDurum">
+        <MappingFragment StoreEntitySet="tblStokDurum">
+          <ScalarProperty Name="Birim" ColumnName="Birim" />
+          <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+          <ScalarProperty Name="LotSeriNo" ColumnName="LotSeriNo" />
+          <ScalarProperty Name="UrunKod" ColumnName="UrunKod" />
+          <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblStokGirisAlts">
+      <EntityTypeMapping TypeName="WinFormDbModel.tblStokGirisAlt">
+        <MappingFragment StoreEntitySet="tblStokGirisAlt">
+          <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+          <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+          <ScalarProperty Name="Birim" ColumnName="Birim" />
+          <ScalarProperty Name="LotSeriNo" ColumnName="LotSeriNo" />
+          <ScalarProperty Name="UrunKod" ColumnName="UrunKod" />
+          <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+          <ScalarProperty Name="GirisSira" ColumnName="GirisSira" />
+          <ScalarProperty Name="GirisKod" ColumnName="GirisKod" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblStokGirisUsts">
+      <EntityTypeMapping TypeName="WinFormDbModel.tblStokGirisUst">
+        <MappingFragment StoreEntitySet="tblStokGirisUst">
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="GirisTarih" ColumnName="GirisTarih" />
+          <ScalarProperty Name="FaturaNo" ColumnName="FaturaNo" />
+          <ScalarProperty Name="GirisTur" ColumnName="GirisTur" />
+          <ScalarProperty Name="CariId" ColumnName="CariId" />
+          <ScalarProperty Name="GirisKod" ColumnName="GirisKod" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUrunKayits">
+      <EntityTypeMapping TypeName="WinFormDbModel.tblUrunKayit">
+        <MappingFragment StoreEntitySet="tblUrunKayit">
+          <ScalarProperty Name="KdvOran" ColumnName="KdvOran" />
+          <ScalarProperty Name="MarkaId" ColumnName="MarkaId" />
+          <ScalarProperty Name="BirimId" ColumnName="BirimId" />
+          <ScalarProperty Name="Mensei" ColumnName="Mensei" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="LotSeriNo" ColumnName="LotSeriNo" />
+          <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUsers">
+      <EntityTypeMapping TypeName="WinFormDbModel.tblUser">
+        <MappingFragment StoreEntitySet="tblUser">
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="WinFormDbModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="WinFormDbModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="WinFormDbModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="WinFormDbModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WinFormDbModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="WinFormDbModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WinFormDbModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="WinFormDbModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="WinFormDbModel.Store.sp_upgraddiagrams" />
+    <EntitySetMapping Name="vwStokGirisHepsis">
+      <EntityTypeMapping TypeName="WinFormDbModel.vwStokGirisHepsi">
+        <MappingFragment StoreEntitySet="vwStokGirisHepsi">
+          <ScalarProperty Name="GirisKod" ColumnName="GirisKod" />
+          <ScalarProperty Name="GirisTarih" ColumnName="GirisTarih" />
+          <ScalarProperty Name="FaturaNo" ColumnName="FaturaNo" />
+          <ScalarProperty Name="GirisTur" ColumnName="GirisTur" />
+          <ScalarProperty Name="CariId" ColumnName="CariId" />
+          <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+          <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+          <ScalarProperty Name="Birim" ColumnName="Birim" />
+          <ScalarProperty Name="LotSeriNo" ColumnName="LotSeriNo" />
+          <ScalarProperty Name="UrunKod" ColumnName="UrunKod" />
+          <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwStokCikisHepsis">
+      <EntityTypeMapping TypeName="WinFormDbModel.vwStokCikisHepsi">
+        <MappingFragment StoreEntitySet="vwStokCikisHepsi">
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="VDaire" ColumnName="VDaire" />
+          <ScalarProperty Name="VNo_Tc" ColumnName="VNo_Tc" />
+          <ScalarProperty Name="GenelToplam" ColumnName="GenelToplam" />
+          <ScalarProperty Name="KdvToplam" ColumnName="KdvToplam" />
+          <ScalarProperty Name="Iskonto" ColumnName="Iskonto" />
+          <ScalarProperty Name="AraToplam" ColumnName="AraToplam" />
+          <ScalarProperty Name="CariKod" ColumnName="CariKod" />
+          <ScalarProperty Name="CariAd" ColumnName="CariAd" />
+          <ScalarProperty Name="FaturaNo" ColumnName="FaturaNo" />
+          <ScalarProperty Name="CikisTur" ColumnName="CikisTur" />
+          <ScalarProperty Name="CikisTarih" ColumnName="CikisTarih" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CikisSira" ColumnName="CikisSira" />
+          <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+          <ScalarProperty Name="UrunKod" ColumnName="UrunKod" />
+          <ScalarProperty Name="LotSeriNo" ColumnName="LotSeriNo" />
+          <ScalarProperty Name="Birim" ColumnName="Birim" />
+          <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+          <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+          <ScalarProperty Name="SatisFiyat" ColumnName="SatisFiyat" />
+          <ScalarProperty Name="KdvOran" ColumnName="KdvOran" />
+          <ScalarProperty Name="KdvDahil" ColumnName="KdvDahil" />
+          <ScalarProperty Name="SatisMiktar" ColumnName="SatisMiktar" />
+          <ScalarProperty Name="CikisKod" ColumnName="CikisKod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

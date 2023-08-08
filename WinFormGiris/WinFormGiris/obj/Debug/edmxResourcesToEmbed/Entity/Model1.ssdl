@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WinFormDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ilceler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="ilce" Type="nvarchar" MaxLength="255" />
+    <Property Name="sehir" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="iller">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sehir" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tblAd">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Soyad" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblBirim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Adi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblCari">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CariTip" Type="int" />
+    <Property Name="CariKod" Type="nvarchar" MaxLength="7" />
+    <Property Name="CariAd" Type="nvarchar" MaxLength="350" />
+    <Property Name="Adres" Type="nvarchar(max)" />
+    <Property Name="SehirId" Type="int" />
+    <Property Name="UlkeKodu" Type="nvarchar" MaxLength="5" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="20" />
+    <Property Name="VDaire" Type="nvarchar" MaxLength="100" />
+    <Property Name="VNo_Tc" Type="nvarchar" MaxLength="11" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="tblStokCikisAlt">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CikisKod" Type="nvarchar" MaxLength="8" />
+    <Property Name="CikisSira" Type="int" />
+    <Property Name="Barkod" Type="nvarchar" MaxLength="100" />
+    <Property Name="UrunKod" Type="nvarchar" MaxLength="50" />
+    <Property Name="LotSeriNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Birim" Type="nvarchar" MaxLength="50" />
+    <Property Name="Miktar" Type="int" />
+    <Property Name="BirimFiyat" Type="money" />
+    <Property Name="SatisFiyat" Type="money" />
+    <Property Name="KdvOran" Type="int" />
+    <Property Name="KdvDahil" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SatisMiktar" Type="int" />
+  </EntityType>
+  <EntityType Name="tblStokCikisUst">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CikisKod" Type="nvarchar" MaxLength="8" />
+    <Property Name="CariId" Type="int" />
+    <Property Name="CikisTur" Type="nvarchar" MaxLength="50" />
+    <Property Name="FaturaNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CikisTarih" Type="date" />
+    <Property Name="Aciklama" Type="nvarchar(max)" />
+    <Property Name="AraToplam" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Iskonto" Type="int" />
+    <Property Name="KdvToplam" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="GenelToplam" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SatisMiktar" Type="int" />
+  </EntityType>
+  <EntityType Name="tblStokDurum">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Barkod" Type="nvarchar" MaxLength="100" />
+    <Property Name="UrunKod" Type="nvarchar" MaxLength="50" />
+    <Property Name="LotSeriNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Miktar" Type="int" />
+    <Property Name="Birim" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblStokGirisAlt">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GirisKod" Type="nvarchar" MaxLength="8" />
+    <Property Name="GirisSira" Type="int" />
+    <Property Name="Barkod" Type="nvarchar" MaxLength="100" />
+    <Property Name="UrunKod" Type="nvarchar" MaxLength="50" />
+    <Property Name="LotSeriNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Birim" Type="nvarchar" MaxLength="50" />
+    <Property Name="Miktar" Type="int" />
+    <Property Name="BirimFiyat" Type="money" />
+  </EntityType>
+  <EntityType Name="tblStokGirisUst">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GirisKod" Type="nvarchar" MaxLength="8" />
+    <Property Name="CariId" Type="int" />
+    <Property Name="GirisTur" Type="nvarchar" MaxLength="50" />
+    <Property Name="FaturaNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="GirisTarih" Type="date" />
+    <Property Name="Aciklama" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblUrunKayit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UrunKodu" Type="nvarchar" MaxLength="50" />
+    <Property Name="LotSeriNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Aciklama" Type="nvarchar(max)" />
+    <Property Name="Mensei" Type="nvarchar" MaxLength="50" />
+    <Property Name="BirimId" Type="int" />
+    <Property Name="MarkaId" Type="nvarchar" MaxLength="50" />
+    <Property Name="KdvOran" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Age" Type="tinyint" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar" MaxLength="15" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="5" />
+    <Property Name="Role" Type="tinyint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'WinFormDb.dbo.vwStokCikisHepsi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwStokCikisHepsi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="CikisKod" Type="nvarchar" MaxLength="8" />
+    <Property Name="SatisMiktar" Type="int" />
+    <Property Name="KdvDahil" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KdvOran" Type="int" />
+    <Property Name="SatisFiyat" Type="money" />
+    <Property Name="BirimFiyat" Type="money" />
+    <Property Name="Miktar" Type="int" />
+    <Property Name="Birim" Type="nvarchar" MaxLength="50" />
+    <Property Name="LotSeriNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="UrunKod" Type="nvarchar" MaxLength="50" />
+    <Property Name="Barkod" Type="nvarchar" MaxLength="100" />
+    <Property Name="CikisSira" Type="int" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Aciklama" Type="nvarchar(max)" />
+    <Property Name="CikisTarih" Type="date" />
+    <Property Name="CikisTur" Type="nvarchar" MaxLength="50" />
+    <Property Name="FaturaNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CariAd" Type="nvarchar" MaxLength="350" />
+    <Property Name="CariKod" Type="nvarchar" MaxLength="7" />
+    <Property Name="AraToplam" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Iskonto" Type="int" />
+    <Property Name="KdvToplam" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="GenelToplam" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="VNo_Tc" Type="nvarchar" MaxLength="11" />
+    <Property Name="VDaire" Type="nvarchar" MaxLength="100" />
+    <Property Name="Adres" Type="nvarchar(max)" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'WinFormDb.dbo.vwStokGirisHepsi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwStokGirisHepsi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Barkod" Type="nvarchar" MaxLength="100" />
+    <Property Name="UrunKod" Type="nvarchar" MaxLength="50" />
+    <Property Name="LotSeriNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Birim" Type="nvarchar" MaxLength="50" />
+    <Property Name="Miktar" Type="int" />
+    <Property Name="BirimFiyat" Type="money" />
+    <Property Name="CariId" Type="int" />
+    <Property Name="GirisTur" Type="nvarchar" MaxLength="50" />
+    <Property Name="FaturaNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="GirisTarih" Type="date" />
+    <Property Name="GirisKod" Type="nvarchar" MaxLength="8" />
+  </EntityType>
+  <Association Name="FK_tblCari_iller">
+    <End Role="iller" Type="Self.iller" Multiplicity="0..1" />
+    <End Role="tblCari" Type="Self.tblCari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="iller">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblCari">
+        <PropertyRef Name="SehirId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblStokCikisUst_tblCari">
+    <End Role="tblCari" Type="Self.tblCari" Multiplicity="0..1" />
+    <End Role="tblStokCikisUst" Type="Self.tblStokCikisUst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCari">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblStokCikisUst">
+        <PropertyRef Name="CariId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblStokGirisUst_tblCari">
+    <End Role="tblCari" Type="Self.tblCari" Multiplicity="0..1" />
+    <End Role="tblStokGirisUst" Type="Self.tblStokGirisUst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCari">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblStokGirisUst">
+        <PropertyRef Name="CariId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblUrunKayit_tblBirim">
+    <End Role="tblBirim" Type="Self.tblBirim" Multiplicity="0..1" />
+    <End Role="tblUrunKayit" Type="Self.tblUrunKayit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBirim">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblUrunKayit">
+        <PropertyRef Name="BirimId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="WinFormDbModelStoreContainer">
+    <EntitySet Name="ilceler" EntityType="Self.ilceler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="iller" EntityType="Self.iller" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAd" EntityType="Self.tblAd" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblBirim" EntityType="Self.tblBirim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCari" EntityType="Self.tblCari" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblStokCikisAlt" EntityType="Self.tblStokCikisAlt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblStokCikisUst" EntityType="Self.tblStokCikisUst" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblStokDurum" EntityType="Self.tblStokDurum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblStokGirisAlt" EntityType="Self.tblStokGirisAlt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblStokGirisUst" EntityType="Self.tblStokGirisUst" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUrunKayit" EntityType="Self.tblUrunKayit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vwStokCikisHepsi" EntityType="Self.vwStokCikisHepsi" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwStokCikisHepsi].[CikisKod] AS [CikisKod], 
+    [vwStokCikisHepsi].[SatisMiktar] AS [SatisMiktar], 
+    [vwStokCikisHepsi].[KdvDahil] AS [KdvDahil], 
+    [vwStokCikisHepsi].[KdvOran] AS [KdvOran], 
+    [vwStokCikisHepsi].[SatisFiyat] AS [SatisFiyat], 
+    [vwStokCikisHepsi].[BirimFiyat] AS [BirimFiyat], 
+    [vwStokCikisHepsi].[Miktar] AS [Miktar], 
+    [vwStokCikisHepsi].[Birim] AS [Birim], 
+    [vwStokCikisHepsi].[LotSeriNo] AS [LotSeriNo], 
+    [vwStokCikisHepsi].[UrunKod] AS [UrunKod], 
+    [vwStokCikisHepsi].[Barkod] AS [Barkod], 
+    [vwStokCikisHepsi].[CikisSira] AS [CikisSira], 
+    [vwStokCikisHepsi].[Id] AS [Id], 
+    [vwStokCikisHepsi].[Aciklama] AS [Aciklama], 
+    [vwStokCikisHepsi].[CikisTarih] AS [CikisTarih], 
+    [vwStokCikisHepsi].[CikisTur] AS [CikisTur], 
+    [vwStokCikisHepsi].[FaturaNo] AS [FaturaNo], 
+    [vwStokCikisHepsi].[CariAd] AS [CariAd], 
+    [vwStokCikisHepsi].[CariKod] AS [CariKod], 
+    [vwStokCikisHepsi].[AraToplam] AS [AraToplam], 
+    [vwStokCikisHepsi].[Iskonto] AS [Iskonto], 
+    [vwStokCikisHepsi].[KdvToplam] AS [KdvToplam], 
+    [vwStokCikisHepsi].[GenelToplam] AS [GenelToplam], 
+    [vwStokCikisHepsi].[VNo_Tc] AS [VNo_Tc], 
+    [vwStokCikisHepsi].[VDaire] AS [VDaire], 
+    [vwStokCikisHepsi].[Adres] AS [Adres], 
+    [vwStokCikisHepsi].[Tel] AS [Tel]
+    FROM [dbo].[vwStokCikisHepsi] AS [vwStokCikisHepsi]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwStokGirisHepsi" EntityType="Self.vwStokGirisHepsi" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwStokGirisHepsi].[Id] AS [Id], 
+    [vwStokGirisHepsi].[Barkod] AS [Barkod], 
+    [vwStokGirisHepsi].[UrunKod] AS [UrunKod], 
+    [vwStokGirisHepsi].[LotSeriNo] AS [LotSeriNo], 
+    [vwStokGirisHepsi].[Birim] AS [Birim], 
+    [vwStokGirisHepsi].[Miktar] AS [Miktar], 
+    [vwStokGirisHepsi].[BirimFiyat] AS [BirimFiyat], 
+    [vwStokGirisHepsi].[CariId] AS [CariId], 
+    [vwStokGirisHepsi].[GirisTur] AS [GirisTur], 
+    [vwStokGirisHepsi].[FaturaNo] AS [FaturaNo], 
+    [vwStokGirisHepsi].[GirisTarih] AS [GirisTarih], 
+    [vwStokGirisHepsi].[GirisKod] AS [GirisKod]
+    FROM [dbo].[vwStokGirisHepsi] AS [vwStokGirisHepsi]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_tblCari_iller" Association="Self.FK_tblCari_iller">
+      <End Role="iller" EntitySet="iller" />
+      <End Role="tblCari" EntitySet="tblCari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblStokCikisUst_tblCari" Association="Self.FK_tblStokCikisUst_tblCari">
+      <End Role="tblCari" EntitySet="tblCari" />
+      <End Role="tblStokCikisUst" EntitySet="tblStokCikisUst" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblStokGirisUst_tblCari" Association="Self.FK_tblStokGirisUst_tblCari">
+      <End Role="tblCari" EntitySet="tblCari" />
+      <End Role="tblStokGirisUst" EntitySet="tblStokGirisUst" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUrunKayit_tblBirim" Association="Self.FK_tblUrunKayit_tblBirim">
+      <End Role="tblBirim" EntitySet="tblBirim" />
+      <End Role="tblUrunKayit" EntitySet="tblUrunKayit" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

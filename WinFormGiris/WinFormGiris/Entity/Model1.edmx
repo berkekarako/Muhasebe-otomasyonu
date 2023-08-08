@@ -1,0 +1,977 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WinFormDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ilceler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="ilce" Type="nvarchar" MaxLength="255" />
+          <Property Name="sehir" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="iller">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sehir" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tblAd">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+          <Property Name="Soyad" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblBirim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Adi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblCari">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CariTip" Type="int" />
+          <Property Name="CariKod" Type="nvarchar" MaxLength="7" />
+          <Property Name="CariAd" Type="nvarchar" MaxLength="350" />
+          <Property Name="Adres" Type="nvarchar(max)" />
+          <Property Name="SehirId" Type="int" />
+          <Property Name="UlkeKodu" Type="nvarchar" MaxLength="5" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="20" />
+          <Property Name="VDaire" Type="nvarchar" MaxLength="100" />
+          <Property Name="VNo_Tc" Type="nvarchar" MaxLength="11" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="tblStokCikisAlt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CikisKod" Type="nvarchar" MaxLength="8" />
+          <Property Name="CikisSira" Type="int" />
+          <Property Name="Barkod" Type="nvarchar" MaxLength="100" />
+          <Property Name="UrunKod" Type="nvarchar" MaxLength="50" />
+          <Property Name="LotSeriNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Birim" Type="nvarchar" MaxLength="50" />
+          <Property Name="Miktar" Type="int" />
+          <Property Name="BirimFiyat" Type="money" />
+          <Property Name="SatisFiyat" Type="money" />
+          <Property Name="KdvOran" Type="int" />
+          <Property Name="KdvDahil" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SatisMiktar" Type="int" />
+        </EntityType>
+        <EntityType Name="tblStokCikisUst">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CikisKod" Type="nvarchar" MaxLength="8" />
+          <Property Name="CariId" Type="int" />
+          <Property Name="CikisTur" Type="nvarchar" MaxLength="50" />
+          <Property Name="FaturaNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="CikisTarih" Type="date" />
+          <Property Name="Aciklama" Type="nvarchar(max)" />
+          <Property Name="AraToplam" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Iskonto" Type="int" />
+          <Property Name="KdvToplam" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="GenelToplam" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SatisMiktar" Type="int" />
+        </EntityType>
+        <EntityType Name="tblStokDurum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Barkod" Type="nvarchar" MaxLength="100" />
+          <Property Name="UrunKod" Type="nvarchar" MaxLength="50" />
+          <Property Name="LotSeriNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Miktar" Type="int" />
+          <Property Name="Birim" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblStokGirisAlt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GirisKod" Type="nvarchar" MaxLength="8" />
+          <Property Name="GirisSira" Type="int" />
+          <Property Name="Barkod" Type="nvarchar" MaxLength="100" />
+          <Property Name="UrunKod" Type="nvarchar" MaxLength="50" />
+          <Property Name="LotSeriNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Birim" Type="nvarchar" MaxLength="50" />
+          <Property Name="Miktar" Type="int" />
+          <Property Name="BirimFiyat" Type="money" />
+        </EntityType>
+        <EntityType Name="tblStokGirisUst">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GirisKod" Type="nvarchar" MaxLength="8" />
+          <Property Name="CariId" Type="int" />
+          <Property Name="GirisTur" Type="nvarchar" MaxLength="50" />
+          <Property Name="FaturaNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="GirisTarih" Type="date" />
+          <Property Name="Aciklama" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblUrunKayit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="LotSeriNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Aciklama" Type="nvarchar(max)" />
+          <Property Name="Mensei" Type="nvarchar" MaxLength="50" />
+          <Property Name="BirimId" Type="int" />
+          <Property Name="MarkaId" Type="nvarchar" MaxLength="50" />
+          <Property Name="KdvOran" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Age" Type="tinyint" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Password" Type="nvarchar" MaxLength="15" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="5" />
+          <Property Name="Role" Type="tinyint" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WinFormDb.dbo.vwStokCikisHepsi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwStokCikisHepsi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="CikisKod" Type="nvarchar" MaxLength="8" />
+          <Property Name="SatisMiktar" Type="int" />
+          <Property Name="KdvDahil" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="KdvOran" Type="int" />
+          <Property Name="SatisFiyat" Type="money" />
+          <Property Name="BirimFiyat" Type="money" />
+          <Property Name="Miktar" Type="int" />
+          <Property Name="Birim" Type="nvarchar" MaxLength="50" />
+          <Property Name="LotSeriNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="UrunKod" Type="nvarchar" MaxLength="50" />
+          <Property Name="Barkod" Type="nvarchar" MaxLength="100" />
+          <Property Name="CikisSira" Type="int" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Aciklama" Type="nvarchar(max)" />
+          <Property Name="CikisTarih" Type="date" />
+          <Property Name="CikisTur" Type="nvarchar" MaxLength="50" />
+          <Property Name="FaturaNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="CariAd" Type="nvarchar" MaxLength="350" />
+          <Property Name="CariKod" Type="nvarchar" MaxLength="7" />
+          <Property Name="AraToplam" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Iskonto" Type="int" />
+          <Property Name="KdvToplam" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="GenelToplam" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="VNo_Tc" Type="nvarchar" MaxLength="11" />
+          <Property Name="VDaire" Type="nvarchar" MaxLength="100" />
+          <Property Name="Adres" Type="nvarchar(max)" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WinFormDb.dbo.vwStokGirisHepsi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwStokGirisHepsi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Barkod" Type="nvarchar" MaxLength="100" />
+          <Property Name="UrunKod" Type="nvarchar" MaxLength="50" />
+          <Property Name="LotSeriNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Birim" Type="nvarchar" MaxLength="50" />
+          <Property Name="Miktar" Type="int" />
+          <Property Name="BirimFiyat" Type="money" />
+          <Property Name="CariId" Type="int" />
+          <Property Name="GirisTur" Type="nvarchar" MaxLength="50" />
+          <Property Name="FaturaNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="GirisTarih" Type="date" />
+          <Property Name="GirisKod" Type="nvarchar" MaxLength="8" />
+        </EntityType>
+        <Association Name="FK_tblCari_iller">
+          <End Role="iller" Type="Self.iller" Multiplicity="0..1" />
+          <End Role="tblCari" Type="Self.tblCari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="iller">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblCari">
+              <PropertyRef Name="SehirId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblStokCikisUst_tblCari">
+          <End Role="tblCari" Type="Self.tblCari" Multiplicity="0..1" />
+          <End Role="tblStokCikisUst" Type="Self.tblStokCikisUst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCari">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblStokCikisUst">
+              <PropertyRef Name="CariId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblStokGirisUst_tblCari">
+          <End Role="tblCari" Type="Self.tblCari" Multiplicity="0..1" />
+          <End Role="tblStokGirisUst" Type="Self.tblStokGirisUst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCari">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblStokGirisUst">
+              <PropertyRef Name="CariId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUrunKayit_tblBirim">
+          <End Role="tblBirim" Type="Self.tblBirim" Multiplicity="0..1" />
+          <End Role="tblUrunKayit" Type="Self.tblUrunKayit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblBirim">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblUrunKayit">
+              <PropertyRef Name="BirimId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="WinFormDbModelStoreContainer">
+          <EntitySet Name="ilceler" EntityType="Self.ilceler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="iller" EntityType="Self.iller" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAd" EntityType="Self.tblAd" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblBirim" EntityType="Self.tblBirim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCari" EntityType="Self.tblCari" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblStokCikisAlt" EntityType="Self.tblStokCikisAlt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblStokCikisUst" EntityType="Self.tblStokCikisUst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblStokDurum" EntityType="Self.tblStokDurum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblStokGirisAlt" EntityType="Self.tblStokGirisAlt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblStokGirisUst" EntityType="Self.tblStokGirisUst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUrunKayit" EntityType="Self.tblUrunKayit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vwStokCikisHepsi" EntityType="Self.vwStokCikisHepsi" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwStokCikisHepsi].[CikisKod] AS [CikisKod], 
+    [vwStokCikisHepsi].[SatisMiktar] AS [SatisMiktar], 
+    [vwStokCikisHepsi].[KdvDahil] AS [KdvDahil], 
+    [vwStokCikisHepsi].[KdvOran] AS [KdvOran], 
+    [vwStokCikisHepsi].[SatisFiyat] AS [SatisFiyat], 
+    [vwStokCikisHepsi].[BirimFiyat] AS [BirimFiyat], 
+    [vwStokCikisHepsi].[Miktar] AS [Miktar], 
+    [vwStokCikisHepsi].[Birim] AS [Birim], 
+    [vwStokCikisHepsi].[LotSeriNo] AS [LotSeriNo], 
+    [vwStokCikisHepsi].[UrunKod] AS [UrunKod], 
+    [vwStokCikisHepsi].[Barkod] AS [Barkod], 
+    [vwStokCikisHepsi].[CikisSira] AS [CikisSira], 
+    [vwStokCikisHepsi].[Id] AS [Id], 
+    [vwStokCikisHepsi].[Aciklama] AS [Aciklama], 
+    [vwStokCikisHepsi].[CikisTarih] AS [CikisTarih], 
+    [vwStokCikisHepsi].[CikisTur] AS [CikisTur], 
+    [vwStokCikisHepsi].[FaturaNo] AS [FaturaNo], 
+    [vwStokCikisHepsi].[CariAd] AS [CariAd], 
+    [vwStokCikisHepsi].[CariKod] AS [CariKod], 
+    [vwStokCikisHepsi].[AraToplam] AS [AraToplam], 
+    [vwStokCikisHepsi].[Iskonto] AS [Iskonto], 
+    [vwStokCikisHepsi].[KdvToplam] AS [KdvToplam], 
+    [vwStokCikisHepsi].[GenelToplam] AS [GenelToplam], 
+    [vwStokCikisHepsi].[VNo_Tc] AS [VNo_Tc], 
+    [vwStokCikisHepsi].[VDaire] AS [VDaire], 
+    [vwStokCikisHepsi].[Adres] AS [Adres], 
+    [vwStokCikisHepsi].[Tel] AS [Tel]
+    FROM [dbo].[vwStokCikisHepsi] AS [vwStokCikisHepsi]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwStokGirisHepsi" EntityType="Self.vwStokGirisHepsi" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwStokGirisHepsi].[Id] AS [Id], 
+    [vwStokGirisHepsi].[Barkod] AS [Barkod], 
+    [vwStokGirisHepsi].[UrunKod] AS [UrunKod], 
+    [vwStokGirisHepsi].[LotSeriNo] AS [LotSeriNo], 
+    [vwStokGirisHepsi].[Birim] AS [Birim], 
+    [vwStokGirisHepsi].[Miktar] AS [Miktar], 
+    [vwStokGirisHepsi].[BirimFiyat] AS [BirimFiyat], 
+    [vwStokGirisHepsi].[CariId] AS [CariId], 
+    [vwStokGirisHepsi].[GirisTur] AS [GirisTur], 
+    [vwStokGirisHepsi].[FaturaNo] AS [FaturaNo], 
+    [vwStokGirisHepsi].[GirisTarih] AS [GirisTarih], 
+    [vwStokGirisHepsi].[GirisKod] AS [GirisKod]
+    FROM [dbo].[vwStokGirisHepsi] AS [vwStokGirisHepsi]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_tblCari_iller" Association="Self.FK_tblCari_iller">
+            <End Role="iller" EntitySet="iller" />
+            <End Role="tblCari" EntitySet="tblCari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblStokCikisUst_tblCari" Association="Self.FK_tblStokCikisUst_tblCari">
+            <End Role="tblCari" EntitySet="tblCari" />
+            <End Role="tblStokCikisUst" EntitySet="tblStokCikisUst" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblStokGirisUst_tblCari" Association="Self.FK_tblStokGirisUst_tblCari">
+            <End Role="tblCari" EntitySet="tblCari" />
+            <End Role="tblStokGirisUst" EntitySet="tblStokGirisUst" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUrunKayit_tblBirim" Association="Self.FK_tblUrunKayit_tblBirim">
+            <End Role="tblBirim" EntitySet="tblBirim" />
+            <End Role="tblUrunKayit" EntitySet="tblUrunKayit" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WinFormDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="WinFormDbEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ilcelers" EntityType="WinFormDbModel.ilceler" />
+          <EntitySet Name="illers" EntityType="WinFormDbModel.iller" />
+          <EntitySet Name="sysdiagrams" EntityType="WinFormDbModel.sysdiagram" />
+          <EntitySet Name="tblAds" EntityType="WinFormDbModel.tblAd" />
+          <EntitySet Name="tblBirims" EntityType="WinFormDbModel.tblBirim" />
+          <EntitySet Name="tblCaris" EntityType="WinFormDbModel.tblCari" />
+          <EntitySet Name="tblStokCikisAlts" EntityType="WinFormDbModel.tblStokCikisAlt" />
+          <EntitySet Name="tblStokCikisUsts" EntityType="WinFormDbModel.tblStokCikisUst" />
+          <EntitySet Name="tblStokDurums" EntityType="WinFormDbModel.tblStokDurum" />
+          <EntitySet Name="tblStokGirisAlts" EntityType="WinFormDbModel.tblStokGirisAlt" />
+          <EntitySet Name="tblStokGirisUsts" EntityType="WinFormDbModel.tblStokGirisUst" />
+          <EntitySet Name="tblUrunKayits" EntityType="WinFormDbModel.tblUrunKayit" />
+          <EntitySet Name="tblUsers" EntityType="WinFormDbModel.tblUser" />
+          <AssociationSet Name="FK_tblCari_iller" Association="WinFormDbModel.FK_tblCari_iller">
+            <End Role="iller" EntitySet="illers" />
+            <End Role="tblCari" EntitySet="tblCaris" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUrunKayit_tblBirim" Association="WinFormDbModel.FK_tblUrunKayit_tblBirim">
+            <End Role="tblBirim" EntitySet="tblBirims" />
+            <End Role="tblUrunKayit" EntitySet="tblUrunKayits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblStokCikisUst_tblCari" Association="WinFormDbModel.FK_tblStokCikisUst_tblCari">
+            <End Role="tblCari" EntitySet="tblCaris" />
+            <End Role="tblStokCikisUst" EntitySet="tblStokCikisUsts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblStokGirisUst_tblCari" Association="WinFormDbModel.FK_tblStokGirisUst_tblCari">
+            <End Role="tblCari" EntitySet="tblCaris" />
+            <End Role="tblStokGirisUst" EntitySet="tblStokGirisUsts" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(WinFormDbModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(WinFormDbModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="vwStokGirisHepsis" EntityType="WinFormDbModel.vwStokGirisHepsi" />
+          <EntitySet Name="vwStokCikisHepsis" EntityType="WinFormDbModel.vwStokCikisHepsi" />
+        </EntityContainer>
+        <EntityType Name="ilceler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="ilce" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="sehir" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="iller">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sehir" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblCaris" Relationship="WinFormDbModel.FK_tblCari_iller" FromRole="iller" ToRole="tblCari" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblAd">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblBirim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblUrunKayits" Relationship="WinFormDbModel.FK_tblUrunKayit_tblBirim" FromRole="tblBirim" ToRole="tblUrunKayit" />
+        </EntityType>
+        <EntityType Name="tblCari">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CariTip" Type="Int32" />
+          <Property Name="CariKod" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Name="CariAd" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SehirId" Type="Int32" />
+          <Property Name="UlkeKodu" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="VDaire" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VNo_Tc" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="iller" Relationship="WinFormDbModel.FK_tblCari_iller" FromRole="tblCari" ToRole="iller" />
+          <NavigationProperty Name="tblStokCikisUsts" Relationship="WinFormDbModel.FK_tblStokCikisUst_tblCari" FromRole="tblCari" ToRole="tblStokCikisUst" />
+          <NavigationProperty Name="tblStokGirisUsts" Relationship="WinFormDbModel.FK_tblStokGirisUst_tblCari" FromRole="tblCari" ToRole="tblStokGirisUst" />
+        </EntityType>
+        <EntityType Name="tblStokCikisAlt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CikisKod" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="CikisSira" Type="Int32" />
+          <Property Name="Barkod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UrunKod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LotSeriNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Birim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Miktar" Type="Int32" />
+          <Property Name="BirimFiyat" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SatisFiyat" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="KdvOran" Type="Int32" />
+          <Property Name="KdvDahil" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SatisMiktar" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblStokCikisUst">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CikisKod" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="CariId" Type="Int32" />
+          <Property Name="CikisTur" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FaturaNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CikisTarih" Type="DateTime" Precision="0" />
+          <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AraToplam" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Iskonto" Type="Int32" />
+          <Property Name="KdvToplam" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="GenelToplam" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SatisMiktar" Type="Int32" />
+          <NavigationProperty Name="tblCari" Relationship="WinFormDbModel.FK_tblStokCikisUst_tblCari" FromRole="tblStokCikisUst" ToRole="tblCari" />
+        </EntityType>
+        <EntityType Name="tblStokDurum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Barkod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UrunKod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LotSeriNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Miktar" Type="Int32" />
+          <Property Name="Birim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblStokGirisAlt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GirisKod" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="GirisSira" Type="Int32" />
+          <Property Name="Barkod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UrunKod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LotSeriNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Birim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Miktar" Type="Int32" />
+          <Property Name="BirimFiyat" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="tblStokGirisUst">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GirisKod" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="CariId" Type="Int32" />
+          <Property Name="GirisTur" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FaturaNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GirisTarih" Type="DateTime" Precision="0" />
+          <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblCari" Relationship="WinFormDbModel.FK_tblStokGirisUst_tblCari" FromRole="tblStokGirisUst" ToRole="tblCari" />
+        </EntityType>
+        <EntityType Name="tblUrunKayit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LotSeriNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Mensei" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BirimId" Type="Int32" />
+          <Property Name="MarkaId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KdvOran" Type="Byte" />
+          <NavigationProperty Name="tblBirim" Relationship="WinFormDbModel.FK_tblUrunKayit_tblBirim" FromRole="tblUrunKayit" ToRole="tblBirim" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Byte" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Role" Type="Byte" />
+        </EntityType>
+        <Association Name="FK_tblCari_iller">
+          <End Type="WinFormDbModel.iller" Role="iller" Multiplicity="0..1" />
+          <End Type="WinFormDbModel.tblCari" Role="tblCari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="iller">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblCari">
+              <PropertyRef Name="SehirId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUrunKayit_tblBirim">
+          <End Type="WinFormDbModel.tblBirim" Role="tblBirim" Multiplicity="0..1" />
+          <End Type="WinFormDbModel.tblUrunKayit" Role="tblUrunKayit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblBirim">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblUrunKayit">
+              <PropertyRef Name="BirimId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblStokCikisUst_tblCari">
+          <End Type="WinFormDbModel.tblCari" Role="tblCari" Multiplicity="0..1" />
+          <End Type="WinFormDbModel.tblStokCikisUst" Role="tblStokCikisUst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCari">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblStokCikisUst">
+              <PropertyRef Name="CariId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblStokGirisUst_tblCari">
+          <End Type="WinFormDbModel.tblCari" Role="tblCari" Multiplicity="0..1" />
+          <End Type="WinFormDbModel.tblStokGirisUst" Role="tblStokGirisUst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCari">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblStokGirisUst">
+              <PropertyRef Name="CariId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="vwStokGirisHepsi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Barkod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UrunKod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LotSeriNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Birim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Miktar" Type="Int32" />
+          <Property Name="BirimFiyat" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CariId" Type="Int32" />
+          <Property Name="GirisTur" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FaturaNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GirisTarih" Type="DateTime" Precision="0" />
+          <Property Name="GirisKod" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vwStokCikisHepsi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="CikisKod" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="SatisMiktar" Type="Int32" />
+          <Property Name="KdvDahil" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="KdvOran" Type="Int32" />
+          <Property Name="SatisFiyat" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="BirimFiyat" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Miktar" Type="Int32" />
+          <Property Name="Birim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LotSeriNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UrunKod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Barkod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CikisSira" Type="Int32" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CikisTarih" Type="DateTime" Precision="0" />
+          <Property Name="CikisTur" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FaturaNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CariAd" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="CariKod" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Name="AraToplam" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Iskonto" Type="Int32" />
+          <Property Name="KdvToplam" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="GenelToplam" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="VNo_Tc" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="VDaire" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WinFormDbModelStoreContainer" CdmEntityContainer="WinFormDbEntities1">
+          <EntitySetMapping Name="ilcelers">
+            <EntityTypeMapping TypeName="WinFormDbModel.ilceler">
+              <MappingFragment StoreEntitySet="ilceler">
+                <ScalarProperty Name="sehir" ColumnName="sehir" />
+                <ScalarProperty Name="ilce" ColumnName="ilce" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="illers">
+            <EntityTypeMapping TypeName="WinFormDbModel.iller">
+              <MappingFragment StoreEntitySet="iller">
+                <ScalarProperty Name="sehir" ColumnName="sehir" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="WinFormDbModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAds">
+            <EntityTypeMapping TypeName="WinFormDbModel.tblAd">
+              <MappingFragment StoreEntitySet="tblAd">
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblBirims">
+            <EntityTypeMapping TypeName="WinFormDbModel.tblBirim">
+              <MappingFragment StoreEntitySet="tblBirim">
+                <ScalarProperty Name="Adi" ColumnName="Adi" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCaris">
+            <EntityTypeMapping TypeName="WinFormDbModel.tblCari">
+              <MappingFragment StoreEntitySet="tblCari">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="VNo_Tc" ColumnName="VNo_Tc" />
+                <ScalarProperty Name="VDaire" ColumnName="VDaire" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="UlkeKodu" ColumnName="UlkeKodu" />
+                <ScalarProperty Name="SehirId" ColumnName="SehirId" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="CariAd" ColumnName="CariAd" />
+                <ScalarProperty Name="CariKod" ColumnName="CariKod" />
+                <ScalarProperty Name="CariTip" ColumnName="CariTip" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStokCikisAlts">
+            <EntityTypeMapping TypeName="WinFormDbModel.tblStokCikisAlt">
+              <MappingFragment StoreEntitySet="tblStokCikisAlt">
+                <ScalarProperty Name="SatisMiktar" ColumnName="SatisMiktar" />
+                <ScalarProperty Name="KdvDahil" ColumnName="KdvDahil" />
+                <ScalarProperty Name="KdvOran" ColumnName="KdvOran" />
+                <ScalarProperty Name="SatisFiyat" ColumnName="SatisFiyat" />
+                <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+                <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+                <ScalarProperty Name="Birim" ColumnName="Birim" />
+                <ScalarProperty Name="LotSeriNo" ColumnName="LotSeriNo" />
+                <ScalarProperty Name="UrunKod" ColumnName="UrunKod" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+                <ScalarProperty Name="CikisSira" ColumnName="CikisSira" />
+                <ScalarProperty Name="CikisKod" ColumnName="CikisKod" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStokCikisUsts">
+            <EntityTypeMapping TypeName="WinFormDbModel.tblStokCikisUst">
+              <MappingFragment StoreEntitySet="tblStokCikisUst">
+                <ScalarProperty Name="SatisMiktar" ColumnName="SatisMiktar" />
+                <ScalarProperty Name="GenelToplam" ColumnName="GenelToplam" />
+                <ScalarProperty Name="KdvToplam" ColumnName="KdvToplam" />
+                <ScalarProperty Name="Iskonto" ColumnName="Iskonto" />
+                <ScalarProperty Name="AraToplam" ColumnName="AraToplam" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="CikisTarih" ColumnName="CikisTarih" />
+                <ScalarProperty Name="FaturaNo" ColumnName="FaturaNo" />
+                <ScalarProperty Name="CikisTur" ColumnName="CikisTur" />
+                <ScalarProperty Name="CariId" ColumnName="CariId" />
+                <ScalarProperty Name="CikisKod" ColumnName="CikisKod" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStokDurums">
+            <EntityTypeMapping TypeName="WinFormDbModel.tblStokDurum">
+              <MappingFragment StoreEntitySet="tblStokDurum">
+                <ScalarProperty Name="Birim" ColumnName="Birim" />
+                <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+                <ScalarProperty Name="LotSeriNo" ColumnName="LotSeriNo" />
+                <ScalarProperty Name="UrunKod" ColumnName="UrunKod" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStokGirisAlts">
+            <EntityTypeMapping TypeName="WinFormDbModel.tblStokGirisAlt">
+              <MappingFragment StoreEntitySet="tblStokGirisAlt">
+                <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+                <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+                <ScalarProperty Name="Birim" ColumnName="Birim" />
+                <ScalarProperty Name="LotSeriNo" ColumnName="LotSeriNo" />
+                <ScalarProperty Name="UrunKod" ColumnName="UrunKod" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+                <ScalarProperty Name="GirisSira" ColumnName="GirisSira" />
+                <ScalarProperty Name="GirisKod" ColumnName="GirisKod" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStokGirisUsts">
+            <EntityTypeMapping TypeName="WinFormDbModel.tblStokGirisUst">
+              <MappingFragment StoreEntitySet="tblStokGirisUst">
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="GirisTarih" ColumnName="GirisTarih" />
+                <ScalarProperty Name="FaturaNo" ColumnName="FaturaNo" />
+                <ScalarProperty Name="GirisTur" ColumnName="GirisTur" />
+                <ScalarProperty Name="CariId" ColumnName="CariId" />
+                <ScalarProperty Name="GirisKod" ColumnName="GirisKod" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUrunKayits">
+            <EntityTypeMapping TypeName="WinFormDbModel.tblUrunKayit">
+              <MappingFragment StoreEntitySet="tblUrunKayit">
+                <ScalarProperty Name="KdvOran" ColumnName="KdvOran" />
+                <ScalarProperty Name="MarkaId" ColumnName="MarkaId" />
+                <ScalarProperty Name="BirimId" ColumnName="BirimId" />
+                <ScalarProperty Name="Mensei" ColumnName="Mensei" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="LotSeriNo" ColumnName="LotSeriNo" />
+                <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="WinFormDbModel.tblUser">
+              <MappingFragment StoreEntitySet="tblUser">
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="WinFormDbModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="WinFormDbModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="WinFormDbModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="WinFormDbModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WinFormDbModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="WinFormDbModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WinFormDbModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="WinFormDbModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="WinFormDbModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="vwStokGirisHepsis">
+            <EntityTypeMapping TypeName="WinFormDbModel.vwStokGirisHepsi">
+              <MappingFragment StoreEntitySet="vwStokGirisHepsi">
+                <ScalarProperty Name="GirisKod" ColumnName="GirisKod" />
+                <ScalarProperty Name="GirisTarih" ColumnName="GirisTarih" />
+                <ScalarProperty Name="FaturaNo" ColumnName="FaturaNo" />
+                <ScalarProperty Name="GirisTur" ColumnName="GirisTur" />
+                <ScalarProperty Name="CariId" ColumnName="CariId" />
+                <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+                <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+                <ScalarProperty Name="Birim" ColumnName="Birim" />
+                <ScalarProperty Name="LotSeriNo" ColumnName="LotSeriNo" />
+                <ScalarProperty Name="UrunKod" ColumnName="UrunKod" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwStokCikisHepsis">
+            <EntityTypeMapping TypeName="WinFormDbModel.vwStokCikisHepsi">
+              <MappingFragment StoreEntitySet="vwStokCikisHepsi">
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="VDaire" ColumnName="VDaire" />
+                <ScalarProperty Name="VNo_Tc" ColumnName="VNo_Tc" />
+                <ScalarProperty Name="GenelToplam" ColumnName="GenelToplam" />
+                <ScalarProperty Name="KdvToplam" ColumnName="KdvToplam" />
+                <ScalarProperty Name="Iskonto" ColumnName="Iskonto" />
+                <ScalarProperty Name="AraToplam" ColumnName="AraToplam" />
+                <ScalarProperty Name="CariKod" ColumnName="CariKod" />
+                <ScalarProperty Name="CariAd" ColumnName="CariAd" />
+                <ScalarProperty Name="FaturaNo" ColumnName="FaturaNo" />
+                <ScalarProperty Name="CikisTur" ColumnName="CikisTur" />
+                <ScalarProperty Name="CikisTarih" ColumnName="CikisTarih" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CikisSira" ColumnName="CikisSira" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+                <ScalarProperty Name="UrunKod" ColumnName="UrunKod" />
+                <ScalarProperty Name="LotSeriNo" ColumnName="LotSeriNo" />
+                <ScalarProperty Name="Birim" ColumnName="Birim" />
+                <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+                <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+                <ScalarProperty Name="SatisFiyat" ColumnName="SatisFiyat" />
+                <ScalarProperty Name="KdvOran" ColumnName="KdvOran" />
+                <ScalarProperty Name="KdvDahil" ColumnName="KdvDahil" />
+                <ScalarProperty Name="SatisMiktar" ColumnName="SatisMiktar" />
+                <ScalarProperty Name="CikisKod" ColumnName="CikisKod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
